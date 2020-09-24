@@ -1,0 +1,131 @@
+note.idea.notepad.pro
+app.qr.scanner.master
+scannermaster.docmanager.Intelligentlens
+caller.colorscreen.musical.video
+superscanner.intelligent.lens.translation
+com.hi.translate
+com.zero.boost.master
+--------------------------------------------------
+https://play.google.com/store/apps/details?id=com.hi.translate
+------------------------------------------------
+QR Scanner Master
+Scanner Master Pro
+Super Scanner
+
+
+----------not set买量
+adb shell am broadcast -a com.android.vending.INSTALL_REFERRER --es referrer "utm_source=\(not%20set\)\&utm_medium=\(not%20set\)"
+
+1.获取手机屏幕分辨率
+adb shell "dumpsys window displays |head -n 3"
+
+WINDOW MANAGER DISPLAY CONTENTS (dumpsys window displays)
+  Display: mDisplayId=0
+      init=1080x1920 440dpi cur=1080x1920 app=1080x1920 rng=1080x1025-1920x1865
+cur--->屏幕分辨率（1080x1920 就是屏幕分辨率）
+
+2.查看栈顶activity/获取包名
+---d`--android 8.0以下)
+---adb shell dumpsys activity activityies(android 8.0及以上)
+
+ ResumedActivity
+ mLastPausedActivity
+ 
+
+3.获取手机apk包到桌面
+3.1 获取apk在手机的路径
+---adb shell pm path +包名
+3.2 将apk包提取到电脑桌面
+---adb pull (apk手机路径) C:\Users\Administrator\Desktop
+
+4.多语言-授权
+adb shell pm grant com.sightidea.locale android.permission.CHANGE_CONFIGURATION
+adb shell pm grant sightidea.com.setlocale android.permission.CHANGE_CONFIGURATION
+
+5.安装apk包
+adb install (+apk包路径)
+
+6.卸载apk包
+adb uninstall app.qr.scanner.master(包名）
+
+
+7.清数据
+adb shell pm clear app.qr.scanner.master（包名）
+
+8.停止后台进程
+adb shell am force-stop app.qr.scanner.master（包名）
+
+9.查找手机中第三方app包名
+adb shell pm list packages -3
+例：adb shell "pm list packages -3 |grep scanner"（匹配包名含有scanner的第三方应用）
+
+10.跑monkey的命令
+adb shell monkey -p com.zero.boost.master  --ignore-crashes --ignore-timeouts --ignore-security-exceptions --ignore-native-crashes --pct-touch 20
+--pct-motion 20 --pct-majornav 20 --pct-appswitch 30 --pct-anyevent 5 -v -v -v -s 123456 --throttle 200 5000 >>monkey.txt
+
+adb shell monkey -p com.zero.boost.master  -v -v -v -s 123456 --throttle 100 2000 >>monkey.txt
+
+NullPointerException
+
+11.apk包体信息查询
+a.进入aapt.exe文件路径(在androidSDK的platform-tools目录下)
+d:
+cd D:\software\AndroidSdk\android-sdk-windows\platform-tools
+b.获取apk包体信息
+aapt dump badging apk包路径
+
+12. Android提供了dumpsys工具，可以用于查看很多系统服务信息（dumpsys [service]）：
+meminfo 显示内存信息
+activity 显示activitiy信息
+cpuinfo 显示CPU信息
+package packagename  获取安装包信息
+batterystats 显示电量信息
+window 显示键盘，窗口和它们的关系
+例：adb shell dumpsys meminfo app.qr.scanner.master
+
+13.adb shell top
+
+
+14.删除手机文件夹
+adb shell rm -r /sdcard/masterQR（手机文件夹路径）
+15.导出ANR文件：
+adb pull /data/anr
+
+16. adb reboot (重启手机)
+
+
+
+17.android adb 模拟点击、滑动、输入、按键
+//模拟输入“001”
+adb shell input text “001”
+//模拟home按键
+adb shell input keyevent 3
+//模拟点击(540, 1104)坐标
+adb shell input tap 540 1104
+//模拟滑动，从(250,250)滑动到(300,300)
+adb shell input swipe 250 250 300 300
+
+18.手机录屏
+adb shell screenrecord  --time-limit 10 /sdcard/test.mp4
+
+19.手机截屏
+adb shell screencap /sdcard/test.png
+
+
+
+---------虚拟机脚本--------------
+java -jar C:\Users\unbing\Downloads\zentao.jar
+
+
+
+
+
+
+
+
+
+
+
+
+
+
