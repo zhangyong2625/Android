@@ -7,8 +7,7 @@ WINDOW MANAGER DISPLAY CONTENTS (dumpsys window displays)
 cur--->屏幕分辨率（1080x1920 就是屏幕分辨率）
 
 2.查看栈顶activity/获取包名
----d`--android 8.0以下)
----adb shell dumpsys activity activityies(android 8.0及以上)
+---adb shell dumpsys activity activityies
 
  ResumedActivity
  mLastPausedActivity
