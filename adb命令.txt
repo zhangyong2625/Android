@@ -1,21 +1,3 @@
-note.idea.notepad.pro
-app.qr.scanner.master
-scannermaster.docmanager.Intelligentlens
-caller.colorscreen.musical.video
-superscanner.intelligent.lens.translation
-com.hi.translate
-com.zero.boost.master
---------------------------------------------------
-https://play.google.com/store/apps/details?id=com.hi.translate
-------------------------------------------------
-QR Scanner Master
-Scanner Master Pro
-Super Scanner
-
-
-----------not set买量
-adb shell am broadcast -a com.android.vending.INSTALL_REFERRER --es referrer "utm_source=\(not%20set\)\&utm_medium=\(not%20set\)"
-
 1.获取手机屏幕分辨率
 adb shell "dumpsys window displays |head -n 3"
 
